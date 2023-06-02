@@ -16,7 +16,7 @@
       <textarea id="display" [(ngModel)]="selectedState" readonly></textarea>
       <mat-form-field>
         <mat-label>State</mat-label>
-        <mat-select [(ngModel)]="selectedState" (ngModelChange)="onStateChange()" multiple>
+        <mat-select [(ngModel)]="selectedState" (ngModelChange)="onStateChange()" multiple [disabled]="!selectedCountry">
           <mat-option *ngFor="let state of getStates()" [value]="state">{{state}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -26,7 +26,7 @@
       <textarea id="display" [(ngModel)]="selectedCity" readonly></textarea>
       <mat-form-field>
         <mat-label>City</mat-label>
-        <mat-select [(ngModel)]="selectedCity" (ngModelChange)="onCityChange()" multiple>
+        <mat-select [(ngModel)]="selectedCity" (ngModelChange)="onCityChange()" multiple [disabled]="!selectedState">
           <mat-option *ngFor="let city of getCities()" [value]="city">{{ city }}</mat-option>
         </mat-select>
       </mat-form-field>

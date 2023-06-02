@@ -12,6 +12,7 @@ interface Country {
 
 export class AppComponent {
   
+  /*  JSON Oject data start  */
   countries = ['USA', 'Canada', 'Australia'];
   states: any = {
     'USA': ['New York', 'California', 'Texas'],
@@ -29,6 +30,8 @@ export class AppComponent {
     'Victoria': ['Melbourne', 'Geelong', 'Ballarat'],
     'Queensland': ['Brisbane', 'Gold Coast', 'Cairns']
   };
+
+   /*  JSON Oject data end  */
   
   selectedCountry: string = '';
   selectedState: string = '';
@@ -41,7 +44,6 @@ export class AppComponent {
     console.log(this.selectedCountry)
   }
 
-  
   onStateChange() {
     this.selectedCity = '';
   }
@@ -49,7 +51,8 @@ export class AppComponent {
   onCityChange() {
     this.selectedValues = this.selectedCountry + ', ' + this.selectedState + ', ' + this.selectedCity;
   }
-
+  
+  /* Below method is used for reset the dropdown selected value  */
   resetValue(){
     this.selectedCountry = '';
     this.selectedState = '';
@@ -58,6 +61,9 @@ export class AppComponent {
     this.citiesArray = []
   }
   
+
+  /* The below getStates and getCities method is used when the state value is not 
+   obtained after selecting the country so that why */
   statesArray = [];
   getStates() {
     const selectedCountries = Array.isArray(this.selectedCountry) ? this.selectedCountry : [this.selectedCountry];
