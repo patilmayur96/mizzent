@@ -1,65 +1,37 @@
-<!-- <div class="row">
-    <div>
-        <textarea id="display" [(ngModel)]="selectedCountry" readonly></textarea>
-        <mat-form-field>
-            <mat-label>Country</mat-label>
-            <mat-select [(ngModel)]="selectedCountry" (ngModelChange)="onCountryChange()" multiple>
-              <mat-option *ngFor="let country of countries" [value]="country">{{country}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-    </div>
-    
-    <div>
-        <textarea id="display" [(ngModel)]="selectedState" readonly></textarea>
-        <mat-form-field>
-            <mat-label>State</mat-label>
-            <mat-select [(ngModel)]="selectedState" (ngModelChange)="onStateChange()" multiple>
-              <mat-option *ngFor="let state of states[selectedCountry]" [value]="state">{{state}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-    </div>
-    
-    <div>
-        <textarea id="display" [(ngModel)]="selectedCity" readonly></textarea>
-        <mat-form-field>
-            <mat-label>City</mat-label>
-            <mat-select [(ngModel)]="selectedCity" (ngModelChange)="onCityChange()" multiple>
-              <mat-option *ngFor="let city of cities[selectedState]" [value]="city">{{ city }}</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <button (click)="resetValue()">Reset</button>
-</div> -->
 
-<div class="row">
-  <div>
-    <textarea id="display" [(ngModel)]="selectedCountry" readonly></textarea>
-    <mat-form-field>
-      <mat-label>Country</mat-label>
-      <mat-select [(ngModel)]="selectedCountry" (ngModelChange)="onCountryChange()" multiple>
-        <mat-option *ngFor="let country of countries" [value]="country">{{country}}</mat-option>
-      </mat-select>
-    </mat-form-field>
+<div style="margin-top: 200px; padding: 20px;">
+  <h1>Mizzen digital assignment</h1>
+  <div fxLayout="row">
+    <div fxLayout="column" style="margin-left: 40px;">
+      <textarea id="display" [(ngModel)]="selectedCountry" readonly></textarea>
+      <mat-form-field>
+        <mat-label>Country</mat-label>
+        <mat-select [(ngModel)]="selectedCountry" (ngModelChange)="onCountryChange()" multiple>
+          <mat-option *ngFor="let country of countries" [value]="country">{{country}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <div fxLayout="column"  style="margin-left: 20px;">
+      <textarea id="display" [(ngModel)]="selectedState" readonly></textarea>
+      <mat-form-field>
+        <mat-label>State</mat-label>
+        <mat-select [(ngModel)]="selectedState" (ngModelChange)="onStateChange()" multiple>
+          <mat-option *ngFor="let state of getStates()" [value]="state">{{state}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <div fxLayout="column"  style="margin-left: 40px;">
+      <textarea id="display" [(ngModel)]="selectedCity" readonly></textarea>
+      <mat-form-field>
+        <mat-label>City</mat-label>
+        <mat-select [(ngModel)]="selectedCity" (ngModelChange)="onCityChange()" multiple>
+          <mat-option *ngFor="let city of getCities()" [value]="city">{{ city }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
-
-  <div>
-    <textarea id="display" [(ngModel)]="selectedState" readonly></textarea>
-    <mat-form-field>
-      <mat-label>State</mat-label>
-      <mat-select [(ngModel)]="selectedState" (ngModelChange)="onStateChange()" multiple>
-        <mat-option *ngFor="let state of getStates()" [value]="state">{{state}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-
-  <div>
-    <textarea id="display" [(ngModel)]="selectedCity" readonly></textarea>
-    <mat-form-field>
-      <mat-label>City</mat-label>
-      <mat-select [(ngModel)]="selectedCity" (ngModelChange)="onCityChange()" multiple>
-        <mat-option *ngFor="let city of getCities()" [value]="city">{{ city }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <button (click)="resetValue()">Reset</button>
 </div>
+
+<button mat-raised-button  style="margin-left: 45%;" color="primary" type="button" (click)="resetValue()">Reset</button>
